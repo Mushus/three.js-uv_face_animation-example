@@ -1,0 +1,29 @@
+<!doctype>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>3DモデルのUVいじって表情変更サンプル</title>
+</head>
+<body>
+  <div id="view3d" style="width: 640px; height: 480px;">
+  </div>
+  <div>
+    <button type="button" onclick="game.changeFaceOffset(0 ,0)">:)</button>
+    <button type="button" onclick="game.changeFaceOffset(105 / 512 ,0)">:D</button>
+    <button type="button" onclick="game.changeFaceOffset(210 / 512 ,0)">:o</button>
+  </div>
+  <section>
+    <p>MultiMaterial使えば複数のテクスチャ一をまとめれるっぽい、とりあえず順番は気にせず読み込んだ順番に投げ込めば意図したポリゴンにマテリアルが適用されない的な問題はなさそう</p>
+    <p>表情の変更にUV値を書き換えないといけないと思ってたけどテクスチャのオフセットいじれば問題なかった</p>
+  </section>
+  <script src="script/lib/jquery-3.1.0.min.js"></script>
+  <script src="script/lib/three.js"></script>
+  <script src="script/game.js"></script>
+  <script>
+    var game;
+    $(function() {
+      game = new Game('#view3d', './models/chara/model.json')
+    });
+  </script>
+</body>
+</html>
